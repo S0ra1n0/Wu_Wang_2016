@@ -43,6 +43,7 @@ void solve() {
         ++year;
     }
     cout << "." << el
+    ++counter;
 }
 
 SORAI {
