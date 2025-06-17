@@ -24,7 +24,7 @@
 using namespace std;
 typedef unsigned long long ull;
 
-SORAI {
+SORAI{
     Sanic_speed
     int n, ans = 0; cin >> n;
     cin.ignore();
@@ -38,20 +38,21 @@ SORAI {
         ss >> team[i];
         vector<int> a;
         int b;
-        while(ss >> b) {
+        while (ss >> b) {
             a.pb(b);
         }
         for (int j = 0; j < a.size(); j += 2) {
             if (a[j + 1] != 0) {
                 ++solved[i];
-                penalty[i] += a[j] * a[j + 1];
+                penalty[i] += a[j + 1];
+                if (a[j] != 1) { penalty[i] += (a[j] - 1) * 20; }
             }
         }
     }
     frs(i, 1, n) {
-        if (solved[i] > solved[ans]) {ans = i;}
-        elif (solved[i] == solved[ans]) {
-            if (penalty[i] < penalty[ans]) {ans = i;}
+        if (solved[i] > solved[ans]) { ans = i; }
+        elif(solved[i] == solved[ans]) {
+            if (penalty[i] < penalty[ans]) { ans = i; }
         }
     }
     cout << team[ans] << " " << solved[ans] << " " << penalty[ans];
