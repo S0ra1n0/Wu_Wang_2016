@@ -54,9 +54,7 @@ void solve() {
             }
             double alter, another = 0;
             stringstream sss(cur);
-            //stringstream ssss(next);
             sss >> alter;
-            //ssss >> another;
             for (int k = yeah; k >= 1; --k) {
                 another += (next[k - 1] - '0') * (1 / pow(10, k));
             }
